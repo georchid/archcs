@@ -1,0 +1,49 @@
+package central_processing_unit.interrupts;
+
+import central_processing_unit.interrupts.exceptions.InterruptException;
+import central_processing_unit.interrupts.handlers.InterruptHandler;
+import org.reflections.Reflections;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
+import java.util.*;
+
+public class InterruptVectorTable {
+    private Map<Integer, InterruptHandler> table;
+
+    public InterruptVectorTable() {
+        Map<Integer, InterruptHandler> table = new HashMap<>();
+        try {
+            var reflections = new Reflections("cpu.interrupts");
+            var subclasses = reflections.getSubTypesOf(InterruptHandler.class);
+
+            for (var interruptHandlerClass : subclasses) {
+                var interruptHandler = interruptHandlerClass.getConstructor().newInstance();
+
+                var interfaces = interruptHandlerClass.getGenericInterfaces();
+                if (interfaces.length == 0 || !(interfaces[0] instanceof ParameterizedType paramType)) {
+                    throw new IllegalStateException(
+                            "InterruptHandler subclass must declare generic parameter <T>: " +
+                                    interruptHandlerClass.getName()
+                    );
+                }
+
+                Class<? extends InterruptException> interruptException =
+                        (Class<? extends InterruptException>) paramType.getActualTypeArguments()[0];
+
+                int vector = interruptException.getConstructor(int.class, boolean.class, String.class)
+                        .newInstance(0, false, "")
+                        .getVector();
+
+                table.put(vector, interruptHandler);
+            }
+
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public InterruptHandler getInterruptHandler(int vector) {
+        return table.get(vector);
+    }
+}

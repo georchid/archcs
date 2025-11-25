@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RAM {
-    private List<ByteCell> data;
+    private final List<ByteCell> data;
 
     public RAM(int bytesCount) {
         if (bytesCount % WordCell.BYTES_NUMBER != 0)

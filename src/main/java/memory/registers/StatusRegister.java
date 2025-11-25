@@ -1,6 +1,6 @@
 package memory.registers;
 
-import cpu.Flag;
+import central_processing_unit.Flag;
 
 public class StatusRegister extends Register8 {
     public boolean getFlagStatus(Flag flag) {

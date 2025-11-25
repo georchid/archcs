@@ -1,7 +1,7 @@
 package application;
 
-import cpu.CPU;
-import cpu.Flag;
+import central_processing_unit.CPU;
+import central_processing_unit.Flag;
 import javafx.scene.control.*;
 import memory.cells.WordCell;
 import javafx.collections.FXCollections;

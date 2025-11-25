@@ -1,7 +1,7 @@
 package assemble.numbers.integer.arithmetic;
 
-import cpu.CPU;
-import cpu.interrupts.exceptions.InterruptException;
+import central_processing_unit.CPU;
+import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
 import operands.OperandsRR;
 

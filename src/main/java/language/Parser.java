@@ -18,7 +18,8 @@ public class Parser {
             for (var subclass : subclasses) {
                 handlerList.add(subclass.getConstructor().newInstance());
             }
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+                 IllegalAccessException e) {
             e.printStackTrace();
         }
 

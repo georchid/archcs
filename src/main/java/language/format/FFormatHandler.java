@@ -1,6 +1,6 @@
 package language.format;
 
-import cpu.Flag;
+import central_processing_unit.Flag;
 import assemble.Instruction;
 import operands.OperandsF;
 import language.IncorrectFormatException;

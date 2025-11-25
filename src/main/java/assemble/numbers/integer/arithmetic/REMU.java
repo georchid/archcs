@@ -1,9 +1,9 @@
 package assemble.numbers.integer.arithmetic;
 
-import cpu.CPU;
-import cpu.Flag;
-import cpu.interrupts.exceptions.DivisionByZeroException;
-import cpu.interrupts.exceptions.InterruptException;
+import central_processing_unit.CPU;
+import central_processing_unit.Flag;
+import central_processing_unit.interrupts.exceptions.DivisionByZeroException;
+import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
 import operands.OperandsRRR;
 
