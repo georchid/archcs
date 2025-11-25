@@ -4,7 +4,7 @@ import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsF;
+import language.operands.OperandsF;
 
 public class CF extends Instruction<OperandsF> {
     public CF() {

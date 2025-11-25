@@ -1,4 +1,4 @@
-package operands;
+package language.operands;
 
 import assemble.Instruction;
 import memory.registers.StatusRegister;

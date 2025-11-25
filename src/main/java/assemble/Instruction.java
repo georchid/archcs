@@ -2,7 +2,7 @@ package assemble;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import operands.Operands;
+import language.operands.Operands;
 import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
@@ -130,8 +130,8 @@ public abstract class Instruction<T extends Operands> {
         return format;
     }
 
-    public void execute(CentralProcessingUnit cpu, List<Integer> operands) {
-        executor.execute(cpu, operands);
+    public void execute(CentralProcessingUnit cpu, List<Integer> language.operands) {
+        executor.execute(cpu, language.operands);
     }
 
     static public Instruction fromOpcode(int opcode) {

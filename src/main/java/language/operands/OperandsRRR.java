@@ -1,14 +1,14 @@
-package operands;
+package language.operands;
 
 import assemble.Instruction;
 import memory.registers.Register32;
 
-public class OperandsRRC extends Operands {
-    public int firstRegister;
+public class OperandsRRR extends Operands {
+    public int firstRegister; // чаще всего регистр назначения, но не всегда
     public int secondRegister;
-    public int const12Bit;
+    public int thirdRegister;
 
-    public OperandsRRC(int operandsData) {
+    public OperandsRRR(int operandsData) {
         super(operandsData);
     }
 
@@ -18,6 +18,6 @@ public class OperandsRRC extends Operands {
         operandsData <<= Register32.ADDRESS_SIZE;
         secondRegister = operandsData >>> (Instruction.SIZE - Register32.ADDRESS_SIZE);
         operandsData <<= Register32.ADDRESS_SIZE;
-        const12Bit = operandsData >>> (Instruction.SIZE - 12);
+        thirdRegister = operandsData >>> (Instruction.SIZE - Register32.ADDRESS_SIZE);
     }
 }

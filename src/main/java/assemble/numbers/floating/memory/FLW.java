@@ -3,7 +3,7 @@ package assemble.numbers.floating.memory;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRRC;
+import language.operands.OperandsRRC;
 
 public class FLW extends Instruction<OperandsRRC> {
 

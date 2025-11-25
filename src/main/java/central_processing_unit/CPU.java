@@ -10,7 +10,7 @@ import memory.RAM;
 import memory.registers.ProgramCounter;
 import memory.registers.Register32;
 import memory.registers.StatusRegister;
-import operands.Operands;
+import language.operands.Operands;
 
 import java.util.ArrayList;
 import java.util.List;

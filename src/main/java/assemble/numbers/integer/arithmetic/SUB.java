@@ -4,7 +4,7 @@ import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRRR;
+import language.operands.OperandsRRR;
 
 public class SUB extends Instruction<OperandsRRR> {
     public SUB() {

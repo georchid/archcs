@@ -3,7 +3,7 @@ package assemble.numbers.integer.memory;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRR;
+import language.operands.OperandsRR;
 
 public class SWP extends Instruction<OperandsRR> {
     public SWP() {

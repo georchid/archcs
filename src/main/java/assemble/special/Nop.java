@@ -3,7 +3,7 @@ package assemble.special;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsN;
+import language.operands.OperandsN;
 
 public class Nop extends Instruction<OperandsN> {
     public Nop() {

@@ -1,7 +1,7 @@
 package language.format;
 
 import assemble.Instruction;
-import operands.Operands;
+import language.operands.Operands;
 import language.IncorrectFormatException;
 
 import java.lang.reflect.ParameterizedType;

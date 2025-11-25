@@ -3,7 +3,7 @@ package assemble.numbers.integer.branching;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRC;
+import language.operands.OperandsRC;
 
 // TODO: 25.12.2022
 public class JAL extends Instruction<OperandsRC> {

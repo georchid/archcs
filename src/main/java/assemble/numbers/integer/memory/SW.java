@@ -3,7 +3,7 @@ package assemble.numbers.integer.memory;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRRC;
+import language.operands.OperandsRRC;
 
 // TODO: 24.12.2022
 public class SW extends Instruction<OperandsRRC> {

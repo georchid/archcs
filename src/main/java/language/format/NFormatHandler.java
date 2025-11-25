@@ -1,7 +1,7 @@
 package language.format;
 
 import assemble.Instruction;
-import operands.OperandsN;
+import language.operands.OperandsN;
 import language.IncorrectFormatException;
 
 import java.util.ArrayList;

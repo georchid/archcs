@@ -3,7 +3,7 @@ package assemble.numbers.integer.memory;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRC;
+import language.operands.OperandsRC;
 
 public class LUI extends Instruction<OperandsRC> {
     public LUI() {

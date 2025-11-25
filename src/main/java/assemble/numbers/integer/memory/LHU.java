@@ -5,7 +5,7 @@ import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
 import memory.cells.HalfWordCell;
 import memory.registers.Register32;
-import operands.OperandsRRC;
+import language.operands.OperandsRRC;
 
 // TODO: 25.12.2022
 public class LHU extends Instruction<OperandsRRC> {

@@ -3,7 +3,7 @@ package language.format;
 import central_processing_unit.Flag;
 import assemble.Instruction;
 import memory.registers.Register32;
-import operands.OperandsRR;
+import language.operands.OperandsRR;
 import language.IncorrectFormatException;
 
 import java.util.ArrayList;

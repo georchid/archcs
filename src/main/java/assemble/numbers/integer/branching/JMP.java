@@ -3,7 +3,7 @@ package assemble.numbers.integer.branching;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsC;
+import language.operands.OperandsC;
 
 public class JMP extends Instruction<OperandsC> {
     public JMP() {

@@ -3,7 +3,7 @@ package assemble.numbers.integer.arithmetic;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRRR;
+import language.operands.OperandsRRR;
 
 public class SLTU extends Instruction<OperandsRRR> {
     public SLTU() {

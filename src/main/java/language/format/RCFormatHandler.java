@@ -2,7 +2,7 @@ package language.format;
 
 import assemble.Instruction;
 import memory.registers.Register32;
-import operands.OperandsRC;
+import language.operands.OperandsRC;
 import language.IncorrectFormatException;
 
 import java.util.ArrayList;

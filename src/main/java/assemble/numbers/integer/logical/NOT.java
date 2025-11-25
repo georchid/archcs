@@ -3,7 +3,7 @@ package assemble.numbers.integer.logical;
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import assemble.Instruction;
-import operands.OperandsRR;
+import language.operands.OperandsRR;
 
 public class NOT extends Instruction<OperandsRR> {
     public NOT() {
