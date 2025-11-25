@@ -21,16 +21,13 @@ public class EmulatorController {
     public Button loadIntoMemoryButton;
     @FXML
     public ListView<WordCell> memoryListView;
-    @FXML
-    public ToggleButton supervisorToggleButton;
+
     @FXML
     public Button startButton;
     @FXML
     public Button nextButton;
     @FXML
     public Button resetButton;
-    @FXML
-    public ToggleButton trapToggleButton;
     @FXML
     public ListView<Register32> intRegsListView;
     @FXML
@@ -57,8 +54,8 @@ public class EmulatorController {
         nextButton.setDisable(true);
         resetButton.setDisable(true);
         startButton.setDisable(true);
-        trapToggleButton.setSelected(cpu.statusReg.getFlagStatus(Flag.TRAP));
-        supervisorToggleButton.setSelected(cpu.statusReg.getFlagStatus(Flag.SUPERVISOR));
+
+
 
         // TODO: проверку на количество инчтрукций
         loadIntoMemoryButton.setOnAction(actionEvent -> {
@@ -122,26 +119,19 @@ public class EmulatorController {
             nextButton.setDisable(true);
             resetButton.setDisable(true);
             loadIntoMemoryButton.setDisable(false);
-            trapToggleButton.setSelected(cpu.statusReg.getFlagStatus(Flag.TRAP));
-            supervisorToggleButton.setSelected(cpu.statusReg.getFlagStatus(Flag.SUPERVISOR));
+
             isProgramEnd = false;
             refreshAll();
         });
 
-        trapToggleButton.setOnAction(actionEvent -> {
-            cpu.statusReg.invertFlagStatus(Flag.TRAP);
-            refreshAll();
-        });
 
-        supervisorToggleButton.setOnAction(actionEvent -> {
-            cpu.statusReg.invertFlagStatus(Flag.SUPERVISOR);
-            refreshAll();
-        });
+
+
     }
 
     private void automaticExecution() throws EmulationAbortException {
-        trapToggleButton.setDisable(true);
-        supervisorToggleButton.setDisable(true);
+
+
         nextButton.setDisable(true);
 
         while (!cpu.statusReg.getFlagStatus(Flag.TRAP) && !isProgramEnd) {
@@ -150,8 +140,8 @@ public class EmulatorController {
         }
 
         nextButton.setDisable(isProgramEnd);
-        trapToggleButton.setDisable(false);
-        supervisorToggleButton.setDisable(false);
+
+
     }
 
     private void showAlert(String alertInfo) {
