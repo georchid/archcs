@@ -8,8 +8,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import memory.registers.Register32;
 import memory.registers.StatusRegister;
-import parsing.IncorrectFormatException;
-import parsing.Parser;
+import language.IncorrectFormatException;
+import language.Parser;
 
 import java.util.ArrayList;
 import java.util.List;

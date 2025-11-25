@@ -1,6 +1,6 @@
 package operands;
 
-import instructions.Instruction;
+import assemble.Instruction;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;

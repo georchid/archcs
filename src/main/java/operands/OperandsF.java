@@ -1,8 +1,6 @@
 package operands;
 
-import cpu.Flag;
-import instructions.Instruction;
-import memory.registers.Register32;
+import assemble.Instruction;
 import memory.registers.StatusRegister;
 
 public class OperandsF extends Operands {

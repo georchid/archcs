@@ -1,6 +1,6 @@
 package operands;
 
-import instructions.Instruction;
+import assemble.Instruction;
 
 public class OperandsC extends Operands {
     public int const20Bit;

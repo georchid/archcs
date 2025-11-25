@@ -1,6 +1,6 @@
 package operands;
 
-import instructions.Instruction;
+import assemble.Instruction;
 import memory.registers.Register32;
 
 public class OperandsRRR extends Operands {

@@ -5,7 +5,7 @@ import cpu.interrupts.InterruptVectorTable;
 import cpu.interrupts.exceptions.InterruptException;
 import cpu.interrupts.exceptions.UnknownInstructionException;
 import cpu.ports.Port;
-import instructions.Instruction;
+import assemble.Instruction;
 import memory.RAM;
 import memory.registers.ProgramCounter;
 import memory.registers.Register32;
