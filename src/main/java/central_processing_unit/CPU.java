@@ -5,12 +5,12 @@ import central_processing_unit.interrupts.InterruptVectorTable;
 import central_processing_unit.interrupts.exceptions.InterruptException;
 import central_processing_unit.interrupts.exceptions.UnknownInstructionException;
 import central_processing_unit.ports.Port;
-import assemble.Instruction;
+import assemble.CommandUnit;
 import memory.RAM;
 import memory.registers.ProgramCounter;
 import memory.registers.Register32;
 import memory.registers.StatusRegister;
-import language.operands.Operands;
+import assemble.language.operands.Operands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,10 +53,10 @@ public class CPU {
         if (!isProgramEnd) {
             try {
                 int instructionData = memory.getWord(programCounter.postIncrementToNextInstruction());
-                int opcode = instructionData >>> (Instruction.SIZE - Instruction.OPCODE_SIZE);
+                int opcode = instructionData >>> (CommandUnit.SIZE - CommandUnit.OPCODE_SIZE);
                 if (opcode != 0) {
-                    int operandsData = instructionData << Instruction.OPCODE_SIZE;
-                    Instruction instruction = Instruction.fromOpcode(opcode);
+                    int operandsData = instructionData << CommandUnit.OPCODE_SIZE;
+                    CommandUnit instruction = CommandUnit.fromOpcode(opcode);
                     if (instruction == null) {
                         throw new UnknownInstructionException("Unknown instruction requested");
                     }

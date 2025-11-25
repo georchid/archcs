@@ -1,7 +1,7 @@
-package language;
+package assemble.language;
 
 import org.reflections.Reflections;
-import language.format.*;
+import assemble.language.format.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -13,7 +13,7 @@ public class Parser {
         List<FormatHandler> handlerList = new ArrayList<>();
 
         try {
-            var reflections = new Reflections("language.format");
+            var reflections = new Reflections("assemble.language.format");
             var subclasses = reflections.getSubTypesOf(FormatHandler.class);
             for (var subclass : subclasses) {
                 handlerList.add(subclass.getConstructor().newInstance());

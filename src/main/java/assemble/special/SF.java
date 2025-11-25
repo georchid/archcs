@@ -3,10 +3,10 @@ package assemble.special;
 import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsF;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsF;
 
-public class SF extends Instruction<OperandsF> {
+public class SF extends CommandUnit<OperandsF> {
     public SF() {
         super(88, "sf");
     }

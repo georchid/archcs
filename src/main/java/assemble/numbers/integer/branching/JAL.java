@@ -2,11 +2,11 @@ package assemble.numbers.integer.branching;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRC;
 
 // TODO: 25.12.2022
-public class JAL extends Instruction<OperandsRC> {
+public class JAL extends CommandUnit<OperandsRC> {
 
     public JAL() {
         super(44, "jal");

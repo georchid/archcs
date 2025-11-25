@@ -1,4 +1,4 @@
-package language.operands;
+package assemble.language.operands;
 
 public class OperandsN extends Operands {
 

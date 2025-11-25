@@ -1,6 +1,6 @@
-package language.operands;
+package assemble.language.operands;
 
-import assemble.Instruction;
+import assemble.CommandUnit;
 import memory.registers.Register32;
 
 public class OperandsRRR extends Operands {
@@ -14,10 +14,10 @@ public class OperandsRRR extends Operands {
 
     @Override
     protected void disassemble(int operandsData) {
-        firstRegister = operandsData >>> (Instruction.SIZE - Register32.ADDRESS_SIZE);
+        firstRegister = operandsData >>> (CommandUnit.SIZE - Register32.ADDRESS_SIZE);
         operandsData <<= Register32.ADDRESS_SIZE;
-        secondRegister = operandsData >>> (Instruction.SIZE - Register32.ADDRESS_SIZE);
+        secondRegister = operandsData >>> (CommandUnit.SIZE - Register32.ADDRESS_SIZE);
         operandsData <<= Register32.ADDRESS_SIZE;
-        thirdRegister = operandsData >>> (Instruction.SIZE - Register32.ADDRESS_SIZE);
+        thirdRegister = operandsData >>> (CommandUnit.SIZE - Register32.ADDRESS_SIZE);
     }
 }

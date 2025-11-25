@@ -2,10 +2,10 @@ package assemble.numbers.integer.branching;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsC;
 
-public class JMP extends Instruction<OperandsC> {
+public class JMP extends CommandUnit<OperandsC> {
     public JMP() {
         super(78, "jmp");
     }

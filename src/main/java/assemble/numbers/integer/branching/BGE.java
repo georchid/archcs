@@ -2,11 +2,11 @@ package assemble.numbers.integer.branching;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
 // TODO: 25.12.2022
-public class BGE extends Instruction<OperandsRRC> {
+public class BGE extends CommandUnit<OperandsRRC> {
     public BGE() {
         super(90, "bge");
     }

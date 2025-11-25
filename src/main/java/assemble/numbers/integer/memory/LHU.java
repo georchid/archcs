@@ -2,13 +2,13 @@ package assemble.numbers.integer.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
+import assemble.CommandUnit;
 import memory.cells.HalfWordCell;
 import memory.registers.Register32;
-import language.operands.OperandsRRC;
+import assemble.language.operands.OperandsRRC;
 
 // TODO: 25.12.2022
-public class LHU extends Instruction<OperandsRRC> {
+public class LHU extends CommandUnit<OperandsRRC> {
 
     public LHU() {
         super(34, "lhu");

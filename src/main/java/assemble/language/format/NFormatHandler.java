@@ -1,8 +1,8 @@
-package language.format;
+package assemble.language.format;
 
-import assemble.Instruction;
-import language.operands.OperandsN;
-import language.IncorrectFormatException;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsN;
+import assemble.language.IncorrectFormatException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class NFormatHandler extends FormatHandler {
     public int handleRequest(String request) throws IncorrectFormatException {
         int instructionData = 0;
         if (Pattern.compile(formatRegex).matcher(request).matches()) {
-            instructionData = Instruction.fromMnemonic(request.trim()).getOpcode() << (Instruction.SIZE - Instruction.OPCODE_SIZE);
+            instructionData = CommandUnit.fromMnemonic(request.trim()).getOpcode() << (CommandUnit.SIZE - CommandUnit.OPCODE_SIZE);
         } else if (successor != null) {
             instructionData = successor.handleRequest(request);
         } else {

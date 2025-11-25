@@ -2,10 +2,10 @@ package assemble.numbers.integer.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRR;
 
-public class SWP extends Instruction<OperandsRR> {
+public class SWP extends CommandUnit<OperandsRR> {
     public SWP() {
         super(86, "swp");
     }

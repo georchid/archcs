@@ -3,10 +3,10 @@ package assemble.numbers.integer.logical;
 import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
-public class ORI extends Instruction<OperandsRRC> {
+public class ORI extends CommandUnit<OperandsRRC> {
     public ORI() {
         super(22, "ori");
     }

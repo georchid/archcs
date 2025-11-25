@@ -1,17 +1,19 @@
-package language.format;
+package assemble.language.format;
 
-import assemble.Instruction;
+import central_processing_unit.Flag;
+import assemble.CommandUnit;
 import memory.registers.Register32;
-import language.operands.OperandsRRC;
-import language.IncorrectFormatException;
+import assemble.language.operands.OperandsRR;
+import assemble.language.IncorrectFormatException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class RRCFormatHandler extends FormatHandler {
-    public RRCFormatHandler() {
-        super(OperandsRRC.class);
+public class RRFormatHandler extends FormatHandler {
+    public RRFormatHandler() {
+        //super(Instruction.OperandsFormat.RR);
+        super(OperandsRR.class);
     }
 
     @Override
@@ -19,7 +21,6 @@ public class RRCFormatHandler extends FormatHandler {
         List<String> operandRegexes = new ArrayList<>();
         operandRegexes.add(registerRegex);
         operandRegexes.add(registerRegex);
-        operandRegexes.add(const12Regex);
         return operandRegexes;
     }
 
@@ -28,11 +29,10 @@ public class RRCFormatHandler extends FormatHandler {
         int instructionData = 0;
         if (Pattern.compile(formatRegex).matcher(request).matches()) {
             String[] components = request.trim().split("( +)");
-            int offset = Instruction.SIZE;
-            instructionData = Instruction.fromMnemonic(components[0]).getOpcode() << (offset -= Instruction.OPCODE_SIZE);
+            int offset = CommandUnit.SIZE;
+            instructionData = CommandUnit.fromMnemonic(components[0]).getOpcode() << (offset -= CommandUnit.OPCODE_SIZE);
             instructionData |= Integer.decode(components[1].replaceAll("\\D+", "")) << (offset -= Register32.ADDRESS_SIZE);
-            instructionData |= Integer.decode(components[2].replaceAll("\\D+", "")) << (offset -= Register32.ADDRESS_SIZE);
-            instructionData |= Integer.decode(components[3]) << (offset - 12);
+            instructionData |= Integer.decode(components[2].replaceAll("\\D+", "")) << (offset - Flag.SIZE);
         } else if (successor != null) {
             instructionData = successor.handleRequest(request);
         } else {
@@ -41,19 +41,19 @@ public class RRCFormatHandler extends FormatHandler {
         return instructionData;
     }
 
-    /*static final private String rrcFormatRegex;
+    /*static final private String rrFormatRegex;
 
     static {
         StringBuilder regexBuilder = new StringBuilder().append("^( *)(");
         boolean isFirst = true;
         for (var instruction : Instruction.values()) {
-            if (instruction.getFormat() == Instruction.Format.RRC) {
+            if (instruction.getFormat() == Instruction.Format.RR) {
                 if (!isFirst)
                     regexBuilder.append("|");
-                regexBuilder.
-                        append(instruction.getMnemonic().toUpperCase()).
-                        append("|").
-                        append(instruction.getMnemonic().toLowerCase());
+                regexBuilder
+                        .append(instruction.getMnemonic().toUpperCase())
+                        .append("|")
+                        .append(instruction.getMnemonic().toLowerCase());
                 isFirst = false;
             }
         }
@@ -62,24 +62,21 @@ public class RRCFormatHandler extends FormatHandler {
                 .append(registerRegex)
                 .append("( +)")
                 .append(registerRegex)
-                .append("( +)")
-                .append(const12Regex)
                 .append("( *)$");
 
-        rrcFormatRegex = regexBuilder.toString();
+        rrFormatRegex = regexBuilder.toString();
     }
 
     // TODO
     @Override
     public int handleRequest(String request) throws IncorrectFormatException {
         int instructionData = 0;
-        if (Pattern.compile(rrcFormatRegex).matcher(request).matches()) {
+        if (Pattern.compile(rrFormatRegex).matcher(request).matches()) {
             String[] components = request.trim().split("( +)");
             int offset = Instruction.SIZE;
             instructionData = Instruction.fromMnemonic(components[0]).getOpcode() << (offset -= Instruction.OPCODE_SIZE);
             instructionData |= Integer.decode(components[1].replaceAll("\\D+", "")) << (offset -= 5);
-            instructionData |= Integer.decode(components[2].replaceAll("\\D+", "")) << (offset -= 5);
-            instructionData |= Integer.decode(components[3]) << (offset - 12);
+            instructionData |= Integer.decode(components[2].replaceAll("\\D+", "")) << (offset - 5);
         } else if (successor != null) {
             instructionData = successor.handleRequest(request);
         } else {

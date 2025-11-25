@@ -4,10 +4,10 @@ import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.DivisionByZeroException;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRR;
 
-public class DIVU extends Instruction<OperandsRRR> {
+public class DIVU extends CommandUnit<OperandsRRR> {
     public DIVU() {
         super(15, "divu");
     }

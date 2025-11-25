@@ -2,10 +2,10 @@ package assemble.numbers.floating.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
-public class FLW extends Instruction<OperandsRRC> {
+public class FLW extends CommandUnit<OperandsRRC> {
 
     public FLW() {
         super(50, "flw");

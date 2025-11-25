@@ -2,10 +2,10 @@ package assemble.numbers.integer.logical;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRR;
 
-public class NOT extends Instruction<OperandsRR> {
+public class NOT extends CommandUnit<OperandsRR> {
     public NOT() {
         super(72, "not");
     }

@@ -3,10 +3,10 @@ package assemble.numbers.integer.logical;
 import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
-public class SLLI extends Instruction<OperandsRRC> {
+public class SLLI extends CommandUnit<OperandsRRC> {
     public SLLI() {
         super(27, "slli");
     }

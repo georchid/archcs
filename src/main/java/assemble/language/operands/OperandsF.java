@@ -1,6 +1,6 @@
-package language.operands;
+package assemble.language.operands;
 
-import assemble.Instruction;
+import assemble.CommandUnit;
 import memory.registers.StatusRegister;
 
 public class OperandsF extends Operands {
@@ -12,6 +12,6 @@ public class OperandsF extends Operands {
 
     @Override
     protected void disassemble(int operandsData) {
-        flagValue = operandsData >>> (Instruction.SIZE - StatusRegister.ADDRESS_SIZE);
+        flagValue = operandsData >>> (CommandUnit.SIZE - StatusRegister.ADDRESS_SIZE);
     }
 }

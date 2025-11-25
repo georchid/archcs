@@ -3,11 +3,11 @@ package assemble.numbers.integer.logical;
 import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRR;
 
 // TODO: 24.12.2022
-public class SRL extends Instruction<OperandsRRR> {
+public class SRL extends CommandUnit<OperandsRRR> {
     public SRL() {
         super(25, "srl");
     }

@@ -1,8 +1,8 @@
-package language.format;
+package assemble.language.format;
 
-import assemble.Instruction;
-import language.operands.OperandsC;
-import language.IncorrectFormatException;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsC;
+import assemble.language.IncorrectFormatException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ public class CFormatHandler extends FormatHandler {
         int instructionData = 0;
         if (Pattern.compile(formatRegex).matcher(request).matches()) {
             String[] components = request.toUpperCase().trim().split("( +)");
-            int offset = Instruction.SIZE;
-            instructionData = Instruction.fromMnemonic(components[0]).getOpcode() << (offset -= Instruction.OPCODE_SIZE);
+            int offset = CommandUnit.SIZE;
+            instructionData = CommandUnit.fromMnemonic(components[0]).getOpcode() << (offset -= CommandUnit.OPCODE_SIZE);
             instructionData |= Integer.decode(components[1]) << (offset - 20);
         } else if (successor != null) {
             instructionData = successor.handleRequest(request);

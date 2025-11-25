@@ -2,10 +2,10 @@ package assemble.numbers.integer.arithmetic;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRC;
 
-public class AUIPC extends Instruction<OperandsRC> {
+public class AUIPC extends CommandUnit<OperandsRC> {
     public AUIPC() {
         super(9, "auipc");
     }

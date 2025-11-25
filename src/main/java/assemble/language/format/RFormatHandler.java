@@ -1,9 +1,9 @@
-package language.format;
+package assemble.language.format;
 
-import assemble.Instruction;
+import assemble.CommandUnit;
 import memory.registers.Register32;
-import language.operands.OperandsR;
-import language.IncorrectFormatException;
+import assemble.language.operands.OperandsR;
+import assemble.language.IncorrectFormatException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ public class RFormatHandler extends FormatHandler {
         int instructionData = 0;
         if (Pattern.compile(formatRegex).matcher(request).matches()) {
             String[] components = request.trim().split("( +)");
-            int offset = Instruction.SIZE;
-            instructionData = Instruction.fromMnemonic(components[0]).getOpcode() << (offset -= Instruction.OPCODE_SIZE);
+            int offset = CommandUnit.SIZE;
+            instructionData = CommandUnit.fromMnemonic(components[0]).getOpcode() << (offset -= CommandUnit.OPCODE_SIZE);
             instructionData |= Integer.decode(components[1].replaceAll("\\D+", "")) << (offset - Register32.ADDRESS_SIZE);
         } else if (successor != null) {
             instructionData = successor.handleRequest(request);

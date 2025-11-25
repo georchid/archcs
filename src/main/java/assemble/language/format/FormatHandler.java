@@ -1,8 +1,8 @@
-package language.format;
+package assemble.language.format;
 
-import assemble.Instruction;
-import language.operands.Operands;
-import language.IncorrectFormatException;
+import assemble.CommandUnit;
+import assemble.language.operands.Operands;
+import assemble.language.IncorrectFormatException;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -19,7 +19,7 @@ public abstract class FormatHandler {
         StringBuilder regexBuilder = new StringBuilder().append("^( *)(");
         boolean isFirst = true;
 
-        for (var instruction : Instruction.values()) {
+        for (var instruction : CommandUnit.values()) {
             Class<? extends Operands> _operands =
                     (Class<? extends Operands>) ((ParameterizedType)instruction
                             .getClass().getGenericSuperclass()).getActualTypeArguments()[0];

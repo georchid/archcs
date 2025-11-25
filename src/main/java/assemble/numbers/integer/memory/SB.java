@@ -2,11 +2,11 @@ package assemble.numbers.integer.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
 // TODO: 25.12.2022
-public class SB extends Instruction<OperandsRRC> {
+public class SB extends CommandUnit<OperandsRRC> {
     public SB() {
         super(38, "sb");
     }

@@ -2,22 +2,22 @@ package assemble;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import language.operands.Operands;
+import assemble.language.operands.Operands;
 import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-public abstract class Instruction<T extends Operands> {
-    private static Map<Integer, Instruction> OPCODES = null;
-    private static Map<String, Instruction> MNEMONICS = null;
-    private static List<Instruction> VALUES = null;
+public abstract class CommandUnit<T extends Operands> {
+    private static Map<Integer, CommandUnit> OPCODES = null;
+    private static Map<String, CommandUnit> MNEMONICS = null;
+    private static List<CommandUnit> VALUES = null;
     public static int OPCODE_SIZE = 7;
     public static int SIZE = 32;
     private final int opcode;
     private final String mnemonic;
 
-    public Instruction(int opcode, String mnemonic) {
+    public CommandUnit(int opcode, String mnemonic) {
         this.opcode = opcode;
         this.mnemonic = mnemonic.toLowerCase();
     }
@@ -32,12 +32,12 @@ public abstract class Instruction<T extends Operands> {
 
     public abstract void execute(CPU cpu, T operands) throws InterruptException;
 
-    public static List<Instruction> values() {
+    public static List<CommandUnit> values() {
         if (VALUES == null) {
             try {
                 var reflections = new Reflections("assemble");
-                var subclasses = reflections.getSubTypesOf(Instruction.class);
-                List<Instruction> values = new ArrayList<>();
+                var subclasses = reflections.getSubTypesOf(CommandUnit.class);
+                List<CommandUnit> values = new ArrayList<>();
                 for (var subclass : subclasses) {
                     values.add(subclass.getConstructor().newInstance());
                 }
@@ -50,14 +50,14 @@ public abstract class Instruction<T extends Operands> {
     }
 
     // TODO: program end exception, unknown instruction exception
-    public static Instruction fromOpcode(int opcode) {
+    public static CommandUnit fromOpcode(int opcode) {
         if (OPCODES == null) {
             try {
                 var reflections = new Reflections("assemble");
-                var subclasses = reflections.getSubTypesOf(Instruction.class);
-                Map<Integer, Instruction> opcodes = new HashMap<>();
+                var subclasses = reflections.getSubTypesOf(CommandUnit.class);
+                Map<Integer, CommandUnit> opcodes = new HashMap<>();
                 for (var subclass : subclasses) {
-                    Instruction _subclass = subclass.getConstructor().newInstance();
+                    CommandUnit _subclass = subclass.getConstructor().newInstance();
                     opcodes.put(_subclass.getOpcode(), _subclass);
                 }
                 OPCODES = Collections.unmodifiableMap(opcodes);
@@ -69,14 +69,14 @@ public abstract class Instruction<T extends Operands> {
     }
 
     // unknown instruction exception
-    public static Instruction fromMnemonic(String mnemonic) {
+    public static CommandUnit fromMnemonic(String mnemonic) {
         if (MNEMONICS == null) {
             try {
                 var reflections = new Reflections("assemble");
-                var subclasses = reflections.getSubTypesOf(Instruction.class);
-                Map<String, Instruction> mnemonics = new HashMap<>();
+                var subclasses = reflections.getSubTypesOf(CommandUnit.class);
+                Map<String, CommandUnit> mnemonics = new HashMap<>();
                 for (var subclass : subclasses) {
-                    Instruction _subclass = subclass.getConstructor().newInstance();
+                    CommandUnit _subclass = subclass.getConstructor().newInstance();
                     mnemonics.put(_subclass.getMnemonic(), _subclass);
                 }
                 MNEMONICS = Collections.unmodifiableMap(mnemonics);
@@ -130,8 +130,8 @@ public abstract class Instruction<T extends Operands> {
         return format;
     }
 
-    public void execute(CentralProcessingUnit cpu, List<Integer> language.operands) {
-        executor.execute(cpu, language.operands);
+    public void execute(CentralProcessingUnit cpu, List<Integer> assemble.language.operands) {
+        executor.execute(cpu, assemble.language.operands);
     }
 
     static public Instruction fromOpcode(int opcode) {

@@ -2,10 +2,10 @@ package assemble.numbers.integer.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRC;
 
-public class LUI extends Instruction<OperandsRC> {
+public class LUI extends CommandUnit<OperandsRC> {
     public LUI() {
         super(8, "lui");
     }

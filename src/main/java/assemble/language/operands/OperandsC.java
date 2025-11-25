@@ -1,6 +1,6 @@
-package language.operands;
+package assemble.language.operands;
 
-import assemble.Instruction;
+import assemble.CommandUnit;
 
 public class OperandsC extends Operands {
     public int const20Bit;
@@ -11,6 +11,6 @@ public class OperandsC extends Operands {
 
     @Override
     protected void disassemble(int operandsData) {
-        const20Bit = operandsData >>> (Instruction.SIZE - 20);
+        const20Bit = operandsData >>> (CommandUnit.SIZE - 20);
     }
 }

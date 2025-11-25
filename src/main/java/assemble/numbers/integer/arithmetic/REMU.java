@@ -4,10 +4,10 @@ import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.DivisionByZeroException;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRR;
 
-public class REMU extends Instruction<OperandsRRR> {
+public class REMU extends CommandUnit<OperandsRRR> {
     public REMU() {
         super(17, "remu");
     }

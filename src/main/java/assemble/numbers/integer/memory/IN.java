@@ -2,10 +2,10 @@ package assemble.numbers.integer.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsR;
 
-public class IN extends Instruction<OperandsR> {
+public class IN extends CommandUnit<OperandsR> {
     public IN() {
         super(84, "in");
     }

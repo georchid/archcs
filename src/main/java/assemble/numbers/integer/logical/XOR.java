@@ -3,10 +3,10 @@ package assemble.numbers.integer.logical;
 import central_processing_unit.CPU;
 import central_processing_unit.Flag;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRR;
 
-public class XOR extends Instruction<OperandsRRR> {
+public class XOR extends CommandUnit<OperandsRRR> {
     public XOR() {
         super(20, "xor");
     }

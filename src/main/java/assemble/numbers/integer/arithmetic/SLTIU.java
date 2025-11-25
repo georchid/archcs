@@ -2,10 +2,10 @@ package assemble.numbers.integer.arithmetic;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRRC;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRRC;
 
-public class SLTIU extends Instruction<OperandsRRC> {
+public class SLTIU extends CommandUnit<OperandsRRC> {
     public SLTIU() {
         super(7, "sltiu");
     }

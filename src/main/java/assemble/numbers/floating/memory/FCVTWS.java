@@ -2,10 +2,10 @@ package assemble.numbers.floating.memory;
 
 import central_processing_unit.CPU;
 import central_processing_unit.interrupts.exceptions.InterruptException;
-import assemble.Instruction;
-import language.operands.OperandsRR;
+import assemble.CommandUnit;
+import assemble.language.operands.OperandsRR;
 
-public class FCVTWS extends Instruction<OperandsRR> {
+public class FCVTWS extends CommandUnit<OperandsRR> {
     public FCVTWS() {
         super(54, "fcvtws");
     }
