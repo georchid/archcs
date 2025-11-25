@@ -1,6 +1,6 @@
 package cpu.interrupts.handlers;
 
-import app.EmulationAbortException;
+import application.EmulationAbortException;
 import cpu.CPU;
 import cpu.interrupts.exceptions.InterruptException;
 

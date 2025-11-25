@@ -1,6 +1,6 @@
 package cpu;
 
-import app.EmulationAbortException;
+import application.EmulationAbortException;
 import cpu.interrupts.InterruptVectorTable;
 import cpu.interrupts.exceptions.InterruptException;
 import cpu.interrupts.exceptions.UnknownInstructionException;
