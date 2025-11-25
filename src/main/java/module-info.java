@@ -4,6 +4,6 @@ module app {
     requires javafx.graphics;
     requires org.reflections;
 
-    opens application to javafx.fxml;
-    exports application;
+    opens app to javafx.fxml;
+    exports app;
 }
