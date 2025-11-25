@@ -78,13 +78,13 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>app.DesktopApplication</mainClass> <!-- Исправьте путь -->
+                    <mainClass>application.DesktopApplication</mainClass> <!-- Исправьте путь -->
                 </configuration>
                 <executions>
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>app.DesktopApplication</mainClass> <!-- Исправьте путь -->
+                            <mainClass>application.DesktopApplication</mainClass> <!-- Исправьте путь -->
                         </configuration>
                     </execution>
                 </executions>
